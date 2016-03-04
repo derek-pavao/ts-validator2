@@ -1,4 +1,4 @@
-import { IConfig } from '../main';
+import {IConfig} from "./i-config";
 
 export interface IEmailConfig extends IConfig {
     pattern?: RegExp;
