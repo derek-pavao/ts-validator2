@@ -1,5 +1,6 @@
 import {IValidatorObject} from "../interfaces/i-validator-object";
 import {IMinConfig} from "../interfaces/i-min-config";
+import * as _ from 'lodash';
 
 export class MinValidator  implements IValidatorObject {
 

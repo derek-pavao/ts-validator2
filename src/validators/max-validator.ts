@@ -1,5 +1,6 @@
 import {IMaxConfig} from "../interfaces/i-max-config";
 import {IValidatorObject} from "../interfaces/i-validator-object";
+import * as _ from 'lodash';
 
 export class MaxValidator implements IValidatorObject {
     public name = 'max';
