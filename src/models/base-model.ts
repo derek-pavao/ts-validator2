@@ -20,8 +20,8 @@ export class BaseModel implements IBaseModel {
         const obj = {};
 
         _.forEach(this._properties, (propertyName: string) => {
-
-            if (!this._ignoreProperties[propertyName]) {
+            console.log(this._ignoreProperties);
+            if (_.isUndefined(this._ignoreProperties[propertyName])) {
                 obj[propertyName] = this[propertyName];
             }
         });

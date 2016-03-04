@@ -3,6 +3,7 @@ import {validatorFactory} from "../utils/validator-factory";
 import {IEmailConfig} from "../interfaces/i-email-config";
 
 
-export let Email = function (config: IEmailConfig) {
+export let Email = function (config: IEmailConfig = {}) {
+
     return validatorFactory(new EmailValidator(config));
 };
