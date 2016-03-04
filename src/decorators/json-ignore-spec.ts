@@ -8,7 +8,7 @@ const expect = chai.expect;
 
 describe('@JsonIgnore()', function () {
     beforeEach(function () {
-        console.log('JsonIgnore', JsonIgnore);
+
         this.testModel = new TestModel({
             dontSerializeMe: 'derp',
             firstName: 'Derek',
@@ -19,11 +19,9 @@ describe('@JsonIgnore()', function () {
 
     it ('should not include the isCool property in the serialized object', function () {
         let obj = JSON.parse(JSON.stringify(this.testModel));
-        console.log('obj', obj);
 
-        expect(obj.isCool).to.be.undefined;
-        // expect(obj).to.not.contain.all.keys(['isCool']);
-        // expect(obj).to.contain.all.keys(['firstName', 'lastName']);
+         expect(obj).to.not.contain.any.keys(['isCool', 'dontSerializeMe']);
+         expect(obj).to.contain.all.keys(['firstName', 'lastName']);
     });
 
 

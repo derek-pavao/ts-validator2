@@ -15,7 +15,6 @@ describe('@ModelProp()', function () {
     });
 
     it ('should have firstName and lastName set as properties', function () {
-        console.log('props', this.testModel._properties);
         expect(this.testModel._properties.indexOf('firstName')).to.not.equal(-1);
         expect(this.testModel._properties.indexOf('lastName')).to.not.equal(-1);
     });

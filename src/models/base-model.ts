@@ -11,7 +11,6 @@ export class BaseModel implements IBaseModel {
 
     constructor(json?) {
         json = json || {};
-        this._ignoreProperties = {};
 
         _.forEach(this._properties, (propertyName: string) => this[propertyName] = json[propertyName]);
     }
@@ -20,7 +19,6 @@ export class BaseModel implements IBaseModel {
         const obj = {};
 
         _.forEach(this._properties, (propertyName: string) => {
-            console.log(this._ignoreProperties);
             if (_.isUndefined(this._ignoreProperties[propertyName])) {
                 obj[propertyName] = this[propertyName];
             }
