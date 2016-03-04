@@ -26,5 +26,5 @@ export let ModelProp = function (config?: IModelPropConfig) {
                 target._properNameForErrors[name] = config.propNameForErrors;
             }
         }
-    }
+    };
 };

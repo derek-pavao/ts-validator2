@@ -1,8 +1,7 @@
 import {BaseModel} from "../models/base-model";
 import {ModelProp} from "./model-prop";
-import * as _ from 'lodash';
 import * as chai from 'chai';
-var expect = chai.expect;
+const expect = chai.expect;
 
 
 describe('@ModelProp()', function () {
@@ -12,7 +11,7 @@ describe('@ModelProp()', function () {
     });
 
     it ('should have an _properties array defined', function () {
-        expect(this.testModel._properties).to.be.instanceOf(Array)
+        expect(this.testModel._properties).to.be.instanceOf(Array);
     });
 
     it ('should have firstName and lastName set as properties', function () {
@@ -40,8 +39,7 @@ class TestModel extends BaseModel {
     @ModelProp()
     public lastName: string;
 
-    @ModelProp({hasGetterSetter: true})
-    private _cool: boolean;
+    public middleName: string;
 
     public get cool() {
         return this._cool;
@@ -52,5 +50,8 @@ class TestModel extends BaseModel {
         this._cool = !val;
     }
 
-    public middleName: string;
+    @ModelProp({hasGetterSetter: true})
+    private _cool: boolean;
+
+
 }

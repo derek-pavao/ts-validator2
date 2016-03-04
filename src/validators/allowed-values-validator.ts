@@ -1,5 +1,6 @@
 import {IValidatorObject} from "../interfaces/i-validator-object";
 import * as _ from 'lodash';
+import {IAllowedValuesConfig} from "../interfaces/i-allowed-values-config";
 
 export class AllowedValuesValidator implements IValidatorObject {
     public name = 'allowedValues';
@@ -31,7 +32,5 @@ export class AllowedValuesValidator implements IValidatorObject {
 
 
         return false;
-
-        // return includes(this.config.values, modelValue);
     }
 }

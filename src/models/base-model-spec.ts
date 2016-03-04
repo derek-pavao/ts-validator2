@@ -3,7 +3,7 @@ import {BaseModel} from './base-model';
 import {ModelProp} from "../decorators/model-prop";
 import {NotEmpty} from "../decorators/not-empty";
 
-var expect = chai.expect;
+const expect = chai.expect;
 
 describe('TestModel', function () {
 

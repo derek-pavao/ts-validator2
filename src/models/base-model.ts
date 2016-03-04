@@ -1,7 +1,7 @@
 import {IBaseModel} from "../interfaces/i-base-model";
 import * as _ from 'lodash';
 
-export class BaseModel implements IBaseModel{
+export class BaseModel implements IBaseModel {
 
     public _validators: Object;
     public _errorMessages: Object;
@@ -16,7 +16,7 @@ export class BaseModel implements IBaseModel{
     }
 
     public toJSON() {
-        var obj = {};
+        const obj = {};
 
         _.forEach(this._properties, (propertyName: string) => {
 
@@ -29,19 +29,19 @@ export class BaseModel implements IBaseModel{
     }
 
     public getErrors(propertyName?: string) {
-        var errorMap = (propertyName) ? this._validateSingleProperty(propertyName) : this._validateAllProperties();
+        const errorMap = (propertyName) ? this._validateSingleProperty(propertyName) : this._validateAllProperties();
 
         return _.isEmpty(errorMap) ? null : errorMap;
     }
 
-    //public updateValidatorsOnDiscriminatorChange(discriminatorValue: any, swaggerDef, fullSwaggerDef) {
+    // public updateValidatorsOnDiscriminatorChange(discriminatorValue: any, swaggerDef, fullSwaggerDef) {
     //    var allOf = fullSwaggerDef.api.definitions[discriminatorValue].allOf;
     //    this._validators = {};
     //
     //    var newSwaggerDef = _.merge.apply(this, [{}].concat(allOf));
     //
     //    attachStaticValidators(this, newSwaggerDef);
-    //}
+    // }
 
 
     /**
@@ -51,7 +51,7 @@ export class BaseModel implements IBaseModel{
      * @private
      */
     private _validateSingleProperty(propertyName: string): any {
-        let errorMap = {};
+        const errorMap = {};
 
         if (this._validators.hasOwnProperty(propertyName)) {
             let errors = this._runValidatorsForProperty(propertyName);
@@ -69,7 +69,7 @@ export class BaseModel implements IBaseModel{
      * @private
      */
     private _validateAllProperties(): any {
-        var errorMap = {};
+        const errorMap = {};
 
         _.forEach(this._properties, (propertyName: string) => {
             let errors = this._runValidatorsForProperty(propertyName);
@@ -89,8 +89,8 @@ export class BaseModel implements IBaseModel{
      * @private
      */
     private _runValidatorsForProperty(propertyName: string) {
-        var value = this[propertyName];
-        var errors = [];
+        const value = this[propertyName];
+        const errors = [];
 
         if (typeof this._validators[propertyName] !== 'undefined') {
 

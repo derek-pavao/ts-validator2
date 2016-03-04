@@ -1,7 +1,7 @@
 import * as chai from 'chai';
 import {NotEmptyValidator} from "./not-empty-validator";
 
-var expect = chai.expect;
+const expect = chai.expect;
 
 describe('NotEmptyValidator', function () {
 

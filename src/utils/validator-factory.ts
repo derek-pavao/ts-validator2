@@ -20,11 +20,12 @@ export let validatorFactory = function (validatorObject: IValidatorObject) {
         }
 
         let validatorMessage;
-        if (!_.isUndefined(target._propNameForErrors) && !_.isUndefined(target._propNameForErrors[name])) {
-            validatorMessage = (validatorObject.config && validatorObject.config.message) ? validatorObject.config.message : defaultMessageFactory(target._propNameForErrors[name], validatorObject);
+        if (hasMessage(validatorObject)) {
+            validatorMessage = validatorObject.config.message;
         } else {
-            validatorMessage = (validatorObject.config && validatorObject.config.message) ? validatorObject.config.message : defaultMessageFactory(name, validatorObject);
+            validatorMessage = defaultMessageFactory(getPropNameForErrors(target, name), validatorObject);
         }
+
 
         if (target instanceof BaseModel) {
             target._validators = target._validators || {};
@@ -35,5 +36,17 @@ export let validatorFactory = function (validatorObject: IValidatorObject) {
             target._errorMessages[name][validatorObject.name] = validatorMessage;
             target._validators[name].push(validatorObject);
         }
+    };
+};
+
+function hasMessage(validatorObj: IValidatorObject): boolean {
+    return !_.isUndefined(validatorObj.config) && !_.isUndefined(validatorObj.config.message);
+}
+
+function getPropNameForErrors(target, name: string): string {
+    if (!_.isUndefined(target._propNameForErrors) && !_.isUndefined(target._propNameForErrors[name])) {
+        return target._propNameForErrors[name];
+    } else {
+        return name;
     }
 }
