@@ -60,19 +60,19 @@ export let attachStaticValidators = function(obj: any, swaggerDef: any) {
 /**
  * Decorator function
  */
-export let swaggerDef = function(swaggerDefinition: any, fullSwaggerDef?) {
+export let SwaggerDef = function(swaggerDef: any, fullSwaggerDef?) {
     return function (target: any) {
-        if (!_.isEqual(_.keys(swaggerDefinition.properties).sort(), getSortedServerProperties(target))) {
-            console.error('Swagger definition', swaggerDefinition);
+        if (!_.isEqual(_.keys(swaggerDef.properties).sort(), getSortedServerProperties(target))) {
+            console.error('Swagger definition', swaggerDef);
             console.error('Model Properties', target.prototype._properties);
             throw new Error(target.name + ' Properties did not match properties in the Swagger definition');
         }
 
         attachStaticValidators(target.prototype, swaggerDef);
 
-        if (swaggerDefinition.discriminator) {
-            target.prototype._discriminator = swaggerDefinition.discriminator;
-            attachDynamicValidator(target, swaggerDefinition.discriminator, swaggerDef, fullSwaggerDef);
+        if (swaggerDef.discriminator) {
+            target.prototype._discriminator = swaggerDef.discriminator;
+            attachDynamicValidator(target, swaggerDef.discriminator, swaggerDef, fullSwaggerDef);
         }
     };
 
@@ -91,7 +91,7 @@ function getSortedServerProperties(target: any) {
     return ret.sort();
 }
 
-function attachDynamicValidator(target: any, discriminator, swaggerDefinition, fullSwaggerDef) {
+function attachDynamicValidator(target: any, discriminator, swaggerDef, fullSwaggerDef) {
 
 
     /**
@@ -107,7 +107,7 @@ function attachDynamicValidator(target: any, discriminator, swaggerDefinition, f
             set: function (newValue) {
 
                 if (this['_' + discriminator] !== newValue) {
-                    this.updateValidatorsOnDiscriminatorChange(newValue, swaggerDefinition, fullSwaggerDef);
+                    this.updateValidatorsOnDiscriminatorChange(newValue, swaggerDef, fullSwaggerDef);
                     this['_' + discriminator] = newValue;
 
                 }
