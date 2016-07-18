@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "release": "npm run build && npm run generate-dts",
-    "generate-dts": "dts-generator --project ./ --name ts-validator2 --out ./dist/ts-validator2.d.ts",
+    "generate-dts": "dts-generator --project ./ --name ts-validator2 --out ./src/ts-validator2.d.ts",
     "generate-docs": "typedoc --mode modules --readme none --module commonjs --moduleResolution node --includeDeclarations --out ./docs/ ./src/index.ts",
     "serve-docs": "http-server ./docs",
     "build": "tsc",
@@ -15,7 +15,7 @@
     "clean": "rm -r dist && rm -r docs"
   },
   "typescript": {
-    "definition": "dist/ts-validator2.d.ts"
+    "definition": "src/ts-validator2.d.ts"
   },
   "author": "Derek Pavao <derek@dotdeeka.com>",
   "license": "MIT",
