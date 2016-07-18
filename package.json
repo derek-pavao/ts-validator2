@@ -14,9 +14,7 @@
     "test:w": "./node_modules/.bin/mocha --require ts-node/register -w src/**/*-spec.ts",
     "clean": "rm -r dist && rm -r docs"
   },
-  "typescript": {
-    "definition": "src/ts-validator2.d.ts"
-  },
+  "typings": "src/ts-validator2.d.ts"
   "author": "Derek Pavao <derek@dotdeeka.com>",
   "license": "MIT",
   "dependencies": {
