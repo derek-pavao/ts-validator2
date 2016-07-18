@@ -2,10 +2,10 @@
   "name": "ts-validator2",
   "version": "0.1.0",
   "description": "",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "scripts": {
     "release": "npm run build && npm run generate-dts",
-    "generate-dts": "dts-generator --project ./src --name ts-validator2 --out ./src/ts-validator2.d.ts",
+    "generate-dts": "dts-generator --project ./ --name ts-validator2 --out ./src/ts-validator2.d.ts",
     "generate-docs": "typedoc --mode modules --readme none --module commonjs --moduleResolution node --includeDeclarations --out ./docs/ ./src/index.ts",
     "serve-docs": "http-server ./docs",
     "build": "tsc",
@@ -14,7 +14,7 @@
     "test:w": "./node_modules/.bin/mocha --require ts-node/register -w src/**/*-spec.ts",
     "clean": "rm -r dist && rm -r docs"
   },
-  "typings": "src/ts-validator2.d.ts",
+  "typings": "dist/index.d.ts",
   "author": "Derek Pavao <derek@dotdeeka.com>",
   "license": "MIT",
   "dependencies": {
@@ -31,5 +31,10 @@
     "ts-node": "^0.5.5",
     "tslint": "^3.5.0",
     "typedoc": "^0.3.12"
+  },
+  "jspm": {
+    "name": "dotDeeka/ts-validator2",
+    "version": "master",
+    "registry": "github"
   }
 }

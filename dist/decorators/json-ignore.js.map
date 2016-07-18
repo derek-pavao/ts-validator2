@@ -1,0 +1,1 @@
+{"version":3,"file":"json-ignore.js","sourceRoot":"","sources":["../../src/decorators/json-ignore.ts"],"names":[],"mappings":";AAAY,kBAAU,GAAG;IAErB,MAAM,CAAC,UAAU,MAAW,EAAE,IAAY;QACtC,MAAM,CAAC,iBAAiB,GAAG,MAAM,CAAC,iBAAiB,IAAI,EAAE,CAAC;QAE1D,MAAM,CAAC,iBAAiB,CAAC,IAAI,CAAC,GAAG,IAAI,CAAC;IAE1C,CAAC,CAAC;AACL,CAAC,CAAC"}
